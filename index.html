@@ -1,0 +1,201 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" ng-app="HireTouch" ng-controller="navigationCtrl">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/m/bower_components/sass-bootstrap/dist/css/bootstrap.css"/>
+    <link href="/m/bower_components/angular-xeditable/dist/css/xeditable.css" rel="stylesheet">
+
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/font-awesome-4.1.0/font-awesome-4.1.0/css/font-awesome.css"/>
+     <!-- <link rel="stylesheet" href="styles/main.css">-->
+    <!-- endbuild -->
+   
+     <script>
+  
+    
+
+    stylesheetCtrl = function($scope) {
+
+
+      $scope.stylesheet ="styles/"+window.location.origin.split('//')[1]+".css";
+      $scope.logo ="images/"+window.location.origin.split('//')[1]+".png";
+
+      
+
+        };
+        
+      </script>
+    <link ng-controller="stylesheetCtrl" rel="stylesheet" ng-href="styles/main.css">
+    <link ng-controller="stylesheetCtrl" rel="stylesheet" ng-href="{{stylesheet}}">
+   
+</head>
+<body >
+<!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="slide-nav">
+    <!-- Mobile Navigation -->
+    <div class="container col-xs-1 col-sm-1 col-md-1 col-lg-2 visible-xs">
+        <div ng-class="navbar-header" class="col-xs-1 no-padding-left">
+            <a class="navbar-toggle" align="center">
+                <div class="sr-only">Toggle navigation</div>
+                <div class="icon-bar no-padding-left"></div>
+                <div class="icon-bar no-padding-left"></div>
+                <div class="icon-bar no-padding-left"></div>
+            </a>
+        </div>    
+    </div>
+    <!-- Slide menu content -->
+    <div id="slidemenu">
+        <ul class="nav nav-pills nav-stacked">
+            <br>
+            <a href="">
+                <b> &nbsp </b>
+            </a>
+            <a href="">
+                <b class="fa fa-lg fa-times pull-right">&nbsp &nbsp</b>
+            </a>
+            <li ng-click="activeTab('')" ng-class="{active: isActive('/dashboard') }">
+                <a ng-href="#/dashboard">
+                    <b class="fa fa-lg fa-search"></b><b> Search Jobs</b>
+                </a>
+            </li>
+            <li ng-click="activeTab('')" ng-class="{active: isActive('/interest')}">
+                <a ng-show="loggedIn()" ng-href="#/interest">
+                    <b class="fa fa-lg fa-star"></b><b> Favorite List</b>
+                </a>
+            </li>
+            <li ng-click="activeTab('')" ng-class="{active: isActive('/profile')}">
+                <a ng-show="loggedIn()" ng-href="#/profile">
+                    <b class="fa fa-lg fa-user"></b><b> My Profile</b>
+                </a>
+            </li>
+            <li ng-click="activeTab('')" ng-class="{active: isActive('/jobs')}">
+                <a ng-show="loggedIn()" ng-href="#/jobs">
+                    <b class="fa fa-lg fa-briefcase"></b><b> My Jobs</b>
+                </a>
+            </li>
+            <li ng-click="activeTab('')" ng-class="{active: isActive('/login')}">
+                <a ng-hide="loggedIn()" ng-href="#/login">
+                    <b class="fa fa-lg fa-user"></b><b> Sign In</b>
+                </a>
+            </li>
+            <li>
+                <a ng-show="loggedIn()" href="#/login">
+                    <b class="fa fa-lg fa-sign-out"></b><b> Logout</b>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="fullMenu" class="hidden-xs col-sm-4 col-md-5 col-lg-6">
+        <ul class="nav nav-tabs">        
+            <li ng-click="activeTab('')" ng-class="{active: isActive('/dashboard') }">
+                <a ng-href="#/dashboard">
+                    <b class="fa fa-lg fa-search"></b><b> Search Jobs</b>
+                </a>
+            </li>
+            <li ng-click="activeTab('')" ng-class="{active: isActive('/interest')}">
+                <a ng-show="loggedIn()" ng-href="#/interest">
+                    <b class="fa fa-lg fa-star"></b><b> Favorite List</b>
+                </a>
+            </li>
+            <li ng-click="activeTab('')" ng-class="{active: isActive('/profile')}">
+                <a ng-show="loggedIn()" ng-href="#/profile">
+                    <b class="fa fa-lg fa-user"></b><b> My Profile</b>
+                </a>
+            </li>
+            <li ng-click="activeTab('')" ng-class="{active: isActive('/jobs')}">
+                <a ng-show="loggedIn()" ng-href="#/jobs">
+                    <b class="fa fa-lg fa-briefcase"></b><b> My Jobs</b>
+                </a>
+            </li>
+            <li ng-click="activeTab('')" ng-class="{active: isActive('/login')}">
+                <a ng-hide="loggedIn()" ng-href="#/login">
+                    <b class="fa fa-lg fa-user"></b><b> Sign In</b>
+                </a>
+            </li>
+            <li>
+                <a ng-show="loggedIn()" href="#/login">
+                    <b class="fa fa-lg fa-sign-out"></b><b> Logout</b>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="hidden-xs full-line col-sm-4  col-md-3 col-lg-2" style="margin-top: 10px;">
+    </div>
+    <div class="navbar-header pull-right">
+        <a class="navbar-brand" href="../admin/dashboard/default.cfm">
+            <img id="logo" class="hidden-xs" ng-controller="stylesheetCtrl" src="{{logo}}" style="height: 45px; padding: 0px;">
+            <img id="logo" class="visible-xs" ng-controller="stylesheetCtrl" src="{{logo}}" style="height: 45px; padding: 0px;">
+        </a>
+    </div>
+</div>
+<div class="container" ng-view=""></div>
+<!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+    <script src="/m/bower_components/jquery/jquery.js"></script>
+    <script src="/m/bower_components/angular/angular.js"></script>
+    <script src="/m/bower_components/sass-bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/m/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="/m/bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="/m/bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/m/bower_components/angular-route/angular-route.js"></script>
+    <script src="/m/bower_components/jquery-pjax/jquery.pjax.js"></script>
+    <script src="/m/bower_components/angularLocalStorage/src/angularLocalStorage.js"></script>
+    <script src="/m/bower_components/bootbox/bootbox.min.js"></script>
+    <script src="/m/bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+    <script src="/m/bower_components/angular-touch/angular-touch.js"></script>
+    <script src="/m/bower_components/angular-animate/angular-animate.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script>$('#logo').on('error', function() { $('#logo').attr("src","images/hiretouch-logo.png");  });</script>
+<script src="scripts/modules/candidateModule.js"></script>
+<script src="scripts/controllers/mainCtrl.js"></script>
+<script src="scripts/controllers/jobListCtrl.js"></script>
+<script src="scripts/factories/publicJobListFactory.js"></script>
+<script src="scripts/controllers/navigationCtrl.js"></script>
+<script src="scripts/controllers/jobCtrl.js"></script>
+<script src="scripts/controllers/loginCtrl.js"></script>
+<script src="scripts/factories/loginFactory.js"></script>
+<script src="scripts/controllers/createAccountCtrl.js"></script>
+<script src="scripts/controllers/profileCtrl.js"></script>
+<script src="scripts/controllers/schedulerCtrl.js"></script>
+<script src="scripts/factories/publicUserJobFactory.js"></script>
+<script src="scripts/controllers/interestCtrl.js"></script>
+<script src="scripts/factories/interestFactory.js"></script>
+<script src="scripts/controllers/formCtrl.js"></script>
+<script src="scripts/factories/formFactory.js"></script>
+<script src="scripts/directives/statusDirective.js"></script>
+<script src="scripts/directives/filterDirective.js"></script>
+<script src="scripts/directives/fieldDirective.js"></script>
+<script src="scripts/directives/detailFieldDirective.js"></script>
+<script src="scripts/directives/questionDirective.js"></script>
+<script src="scripts/directives/elementDirective.js"></script>
+<script src="scripts/services/menuService.js"></script>
+<script src="dist/angular-pageslide-directive.min.js"></script>
+<script src="dist/dirPagination.js"></script>
+<!-- endbuild -->
+</body>
+</html>
